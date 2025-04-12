@@ -269,6 +269,27 @@
             width: 38%;
 
         }
+        .center-to-page {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .bmi-link {
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background-color: #28a745;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .bmi-link:hover {
+        background-color: #1e7e34;
+    }
     </style>
 </head>
 
@@ -557,42 +578,45 @@
             document.getElementById("BMI").value = String(bmi);
             document.getElementById
             var a = document.createElement('a');
+            a.classList.add("bmi-link");
             if (bmi >= 30) {
                 // Create the text node for anchor element.
                 var link = document.createTextNode("OBESITY");
 
                 // Append the text node to anchor element.
                 a.appendChild(link);
-                a.classList.add("Center")
+               
                 a.title = "OBESITY";
                  
                 // Set the href property.
                 a.href = "https://obesity.ccbp.tech";
 
-                // Append the anchor element to the body.
-                document.body.appendChild(a);
+             
             } else if (bmi >= 25) {
                 var link = document.createTextNode("OVER WEIGHT");
                 a.appendChild(link);
                 a.title = "OVER WEIGHT";
                 a.href = "https://overweight.ccbp.tech";
-                    a.classList.add("Center")
-                document.body.appendChild(a);
+                    
             } else if (bmi >= 18.5) {
                 var link = document.createTextNode("NORMAL WEIGHT");
                 a.appendChild(link);
                 a.title = "NORMAL WEIGHT";
                 a.href = "https://normalweight.ccbp.tech";
-                    a.classList.add("Center")
-                document.body.appendChild(a);
+                   
             } else if (bmi >= 0) {
                 var link = document.createTextNode("UNDER WEIGHT");
                 a.appendChild(link);
                 a.title = "UNDER WEIGHT";
                 a.href = "https://underweight.ccbp.tech";
-                    a.classList.add("Center")
-                document.body.appendChild(a);
+                   
             }
+            
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("center-to-page");
+            wrapper.appendChild(a);
+            document.body.appendChild(wrapper);
+            
             var bmiResultElement = document.getElementById("bmiResult");
             bmiResultElement.innerHTML = "ALERT : Your BMI is: " + bmi.toFixed(2) + ", for respective diet plan please scroll down"; // Round BMI to two decimal places
             bmiResultElement.style.fontWeight = "bold";
