@@ -541,6 +541,7 @@
 
                 <input type="button" class="button" value="Calculate" onclick="calculate()" />
                 <div id="bmiResult"></div>
+                <div id="bmiLinkContainer"></div>
                 <input type="button" class="button" value="Reset" onclick="reset()" />
 
             </div>
@@ -615,7 +616,9 @@
             const wrapper = document.createElement("div");
             wrapper.classList.add("center-to-page");
             wrapper.appendChild(a);
-            document.body.appendChild(wrapper);
+            const container = document.getElementById("bmiLinkContainer");
+            container.innerHTML = "";
+            container.appendChild(wrapper);
             
             var bmiResultElement = document.getElementById("bmiResult");
             bmiResultElement.innerHTML = "ALERT : Your BMI is: " + bmi.toFixed(2) + ", for respective diet plan please scroll down"; // Round BMI to two decimal places
